@@ -71,34 +71,34 @@ struct AddUserScreen: View {
                 .padding(.vertical, 8)
                 
                 
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("Password")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                    
-                    SecureField("Enter Password", text: $vm.password)
-                        .textInputAutocapitalization(.none)
-                        .autocorrectionDisabled()
-                        .padding(12)
-                        .background(Color(UIColor.secondarySystemBackground))
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                }
-                .padding(.vertical, 8)
-                
-                
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("Confirm Password")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                    
-                    SecureField("Confirm Password", text: $vm.confirmPassword)
-                        .textInputAutocapitalization(.none)
-                        .autocorrectionDisabled()
-                        .padding(12)
-                        .background(Color(UIColor.secondarySystemBackground))
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                }
-                .padding(.vertical, 8)
+//                VStack(alignment: .leading, spacing: 6) {
+//                    Text("Password")
+//                        .font(.caption)
+//                        .foregroundColor(.secondary)
+//                    
+//                    SecureField("Enter Password", text: $vm.password)
+//                        .textInputAutocapitalization(.none)
+//                        .autocorrectionDisabled()
+//                        .padding(12)
+//                        .background(Color(UIColor.secondarySystemBackground))
+//                        .clipShape(RoundedRectangle(cornerRadius: 8))
+//                }
+//                .padding(.vertical, 8)
+//                
+//                
+//                VStack(alignment: .leading, spacing: 6) {
+//                    Text("Confirm Password")
+//                        .font(.caption)
+//                        .foregroundColor(.secondary)
+//                    
+//                    SecureField("Confirm Password", text: $vm.confirmPassword)
+//                        .textInputAutocapitalization(.none)
+//                        .autocorrectionDisabled()
+//                        .padding(12)
+//                        .background(Color(UIColor.secondarySystemBackground))
+//                        .clipShape(RoundedRectangle(cornerRadius: 8))
+//                }
+//                .padding(.vertical, 8)
                 
                 // Show error if present
                 if let error = vm.errorMessage {

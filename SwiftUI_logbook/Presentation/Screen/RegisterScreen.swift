@@ -40,6 +40,12 @@ struct RegisterScreen: View {
                 Text("User Information")
                     .font(.headline)
 
+                TextField("NIK", text: $vm.nik)
+                    .autocapitalization(.none)
+                    .padding()
+                    .background(Color(UIColor.secondarySystemBackground))
+                    .cornerRadius(8)
+                
                 TextField("Username", text: $vm.username)
                     .autocapitalization(.none)
                     .padding()
@@ -53,15 +59,15 @@ struct RegisterScreen: View {
                     .background(Color(UIColor.secondarySystemBackground))
                     .cornerRadius(8)
 
-                SecureField("Password", text: $vm.password)
-                    .padding()
-                    .background(Color(UIColor.secondarySystemBackground))
-                    .cornerRadius(8)
-
-                SecureField("Confirm Password", text: $vm.confirmPassword)
-                    .padding()
-                    .background(Color(UIColor.secondarySystemBackground))
-                    .cornerRadius(8)
+//                SecureField("Password", text: $vm.password)
+//                    .padding()
+//                    .background(Color(UIColor.secondarySystemBackground))
+//                    .cornerRadius(8)
+//
+//                SecureField("Confirm Password", text: $vm.confirmPassword)
+//                    .padding()
+//                    .background(Color(UIColor.secondarySystemBackground))
+//                    .cornerRadius(8)
             }
 
             if let error = vm.errorMessage {

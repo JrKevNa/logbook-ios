@@ -30,7 +30,7 @@ struct CreateUserRequest: Codable {
     let nik: String
     let email: String   // send as string "YYYY-MM-DD"
     let roleId: String
-    let password: String
+//    let password: String
 }
 
 struct UpdateUserRequest: Codable {
@@ -38,7 +38,7 @@ struct UpdateUserRequest: Codable {
     let nik: String
     let email: String   // send as string "YYYY-MM-DD"
     let roleId: String
-    let password: String?
+//    let password: String?
 }
 
 

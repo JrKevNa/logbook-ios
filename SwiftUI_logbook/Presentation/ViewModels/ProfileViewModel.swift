@@ -15,9 +15,9 @@ class ProfileViewModel: ObservableObject {
     @Published var errorMessageForPassword: String?
     @Published var showSuccessAlert = false
     
-    @Published var oldPassword = ""
-    @Published var newPassword = ""
-    @Published var confirmPassword = ""
+//    @Published var oldPassword = ""
+//    @Published var newPassword = ""
+//    @Published var confirmPassword = ""
     
     @Published var user: User?
     
@@ -47,31 +47,31 @@ class ProfileViewModel: ObservableObject {
         isLoading = false
     }
     
-    func updatePassword() async {
-        isLoading = true
-        errorMessage = nil
-        
-        // 1. basic validation
-        guard !oldPassword.isEmpty,
-              !newPassword.isEmpty,
-              !confirmPassword.isEmpty else {
-            errorMessage = "Please fill all fields"
-            return
-        }
-
-        guard newPassword == confirmPassword else {
-            errorMessage = "New passwords do not match"
-            return
-        }
-        
-        do {
-            try await repository.updateUserProfilePassword(oldPassword: oldPassword, newPassword: newPassword)
-//            appState.loadUserFromStorage()
-            showSuccessAlert = true
-        } catch {
-            self.errorMessage = error.localizedDescription
-        }
-        
-        isLoading = false
-    }
+//    func updatePassword() async {
+//        isLoading = true
+//        errorMessage = nil
+//        
+//        // 1. basic validation
+//        guard !oldPassword.isEmpty,
+//              !newPassword.isEmpty,
+//              !confirmPassword.isEmpty else {
+//            errorMessage = "Please fill all fields"
+//            return
+//        }
+//
+//        guard newPassword == confirmPassword else {
+//            errorMessage = "New passwords do not match"
+//            return
+//        }
+//        
+//        do {
+//            try await repository.updateUserProfilePassword(oldPassword: oldPassword, newPassword: newPassword)
+////            appState.loadUserFromStorage()
+//            showSuccessAlert = true
+//        } catch {
+//            self.errorMessage = error.localizedDescription
+//        }
+//        
+//        isLoading = false
+//    }
 }

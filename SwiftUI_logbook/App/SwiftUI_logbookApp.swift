@@ -5,6 +5,7 @@
 //  Created by Kevin on 02/12/25.
 //
 
+import GoogleSignIn
 import SwiftUI
 
 @main
@@ -14,6 +15,9 @@ struct MyApp: App {
     var body: some Scene {
         WindowGroup {
             RootView()
+                .onOpenURL { url in
+                    GIDSignIn.sharedInstance.handle(url)
+                }
                 .environmentObject(appState)
                 .preferredColorScheme(
                     appState.theme == .system

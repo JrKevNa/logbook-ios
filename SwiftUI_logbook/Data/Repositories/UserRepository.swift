@@ -40,13 +40,14 @@ class UserRepository {
     }
     
     // MARK: - Add User
-    func addUser(username: String, nik: String, email: String, roleId: String, password: String) async throws {
+    // func addUser(username: String, nik: String, email: String, roleId: String, password: String) async throws {
+    func addUser(username: String, nik: String, email: String, roleId: String) async throws {
         let request = CreateUserRequest(
             username: username,
             nik: nik,
             email: email,
             roleId: roleId,
-            password: password
+//            password: password
         )
 
         try await api.addUser(request)
@@ -56,17 +57,18 @@ class UserRepository {
         storage.saveUsers(updatedUsers)
     }
     
-    // MARK: - Update Logbook
-    func updateUser(user: User, username: String, nik: String, email: String, roleId: String, password: String?) async throws {
+    // MARK: - Update User
+    // func updateUser(user: User, username: String, nik: String, email: String, roleId: String, password: String?) async throws {
+    func updateUser(user: User, username: String, nik: String, email: String, roleId: String) async throws {
         // Only pass password if it’s non-empty
-        let passwordToSend = (password?.isEmpty ?? true) ? nil : password
+        // let passwordToSend = (password?.isEmpty ?? true) ? nil : password
 
         let request = UpdateUserRequest(
             username: username,
             nik: nik,
             email: email,
             roleId: roleId,
-            password: passwordToSend
+//            password: passwordToSend
         )
 
         try await api.updateUser(id: user.id, data: request)
@@ -92,11 +94,11 @@ class UserRepository {
         try await api.updateUserProfile(id: user.id, data: request)
     }
     
-    func updateUserProfilePassword(oldPassword: String, newPassword: String) async throws {
+//    func updateUserProfilePassword(oldPassword: String, newPassword: String) async throws {
 //        let request = UpdateUserProfileRequest(
 //            username: username,
 //        )
 //
 //        try await api.updateUserProfile(id: user.id, data: request)
-    }
+//    }
 }

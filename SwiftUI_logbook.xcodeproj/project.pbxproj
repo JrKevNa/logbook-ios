@@ -8,15 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		0A1A82B42EDE8AE200EFFEB6 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 0A1A82B32EDE8AE200EFFEB6 /* KeychainAccess */; };
+		0AB45E9E2F0CA62100889477 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 0AB45E9D2F0CA62100889477 /* GoogleSignIn */; };
+		0AB45EA02F0CA62100889477 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0AB45E9F2F0CA62100889477 /* GoogleSignInSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0A1A82252EDE7ACD00EFFEB6 /* SwiftUI_logbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI_logbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		0AB45E9B2F0CA4A400889477 /* Exceptions for "SwiftUI_logbook" folder in "SwiftUI_logbook" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"SwiftUI-logbook-Info.plist",
+			);
+			target = 0A1A82242EDE7ACD00EFFEB6 /* SwiftUI_logbook */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		0A1A82272EDE7ACD00EFFEB6 /* SwiftUI_logbook */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				0AB45E9B2F0CA4A400889477 /* Exceptions for "SwiftUI_logbook" folder in "SwiftUI_logbook" target */,
+			);
 			path = SwiftUI_logbook;
 			sourceTree = "<group>";
 		};
@@ -27,7 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AB45EA02F0CA62100889477 /* GoogleSignInSwift in Frameworks */,
 				0A1A82B42EDE8AE200EFFEB6 /* KeychainAccess in Frameworks */,
+				0AB45E9E2F0CA62100889477 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +88,8 @@
 			name = SwiftUI_logbook;
 			packageProductDependencies = (
 				0A1A82B32EDE8AE200EFFEB6 /* KeychainAccess */,
+				0AB45E9D2F0CA62100889477 /* GoogleSignIn */,
+				0AB45E9F2F0CA62100889477 /* GoogleSignInSwift */,
 			);
 			productName = SwiftUI_logbook;
 			productReference = 0A1A82252EDE7ACD00EFFEB6 /* SwiftUI_logbook.app */;
@@ -102,6 +121,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				0A1A82B22EDE8AE200EFFEB6 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				0AB45E9C2F0CA62100889477 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0A1A82262EDE7ACD00EFFEB6 /* Products */;
@@ -262,17 +282,19 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SwiftUI-logbook-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "test.SwiftUI-logbook";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jrkevna.logbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -289,17 +311,19 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SwiftUI-logbook-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "test.SwiftUI-logbook";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jrkevna.logbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -339,6 +363,14 @@
 				kind = branch;
 			};
 		};
+		0AB45E9C2F0CA62100889477 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -346,6 +378,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0A1A82B22EDE8AE200EFFEB6 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
+		};
+		0AB45E9D2F0CA62100889477 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0AB45E9C2F0CA62100889477 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		0AB45E9F2F0CA62100889477 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0AB45E9C2F0CA62100889477 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

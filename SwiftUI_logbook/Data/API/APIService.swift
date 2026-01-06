@@ -194,16 +194,70 @@ class APIService {
         return result.user
     }
     
-    func register(companyName: String, username: String, email: String, password: String) async throws {
+    func loginWithGoogle(idToken: String) async throws -> User {
+        let url = URL(string: "\(baseURL)/auth/google/mobile/login")!
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try JSONEncoder().encode(["idToken": idToken])
+
+        let (data, response) = try await session.data(for: request)
+        
+        if let httpResponse = response as? HTTPURLResponse {
+            print("HTTP status code:", httpResponse.statusCode)
+            if let dataString = String(data: data, encoding: .utf8) {
+                print("Response body:", dataString)
+            }
+        }
+        
+        guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+            throw URLError(.badServerResponse)
+        }
+
+        let result = try JSONDecoder().decode(AuthResponse.self, from: data)
+        self.accessToken = result.accessToken
+        self.refreshToken = result.refreshToken
+        
+        KeychainService.shared.save("refreshToken", value: result.refreshToken)
+
+        return result.user
+    }
+    
+//    func register(companyName: String, username: String, email: String, password: String) async throws {
+//        let url = URL(string: "\(baseURL)/auth/register")!
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "POST"
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.httpBody = try JSONEncoder().encode([
+//            "companyName": companyName,
+//            "username": username,
+//            "email": email,
+//            "password": password
+//        ])
+//
+//        let (_, response) = try await session.data(for: request)
+//        
+//        if let httpResponse = response as? HTTPURLResponse {
+//            print("HTTP status code:", httpResponse.statusCode)
+//            guard (200...299).contains(httpResponse.statusCode) else {
+//                throw URLError(.badServerResponse)
+//            }
+//        }
+//
+//        // Registration succeeded — just redirect to login
+//    }
+    
+    func register(companyName: String, nik: String, username: String, email: String) async throws {
         let url = URL(string: "\(baseURL)/auth/register")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try JSONEncoder().encode([
             "companyName": companyName,
+            "nik": nik,
             "username": username,
             "email": email,
-            "password": password
         ])
 
         let (_, response) = try await session.data(for: request)

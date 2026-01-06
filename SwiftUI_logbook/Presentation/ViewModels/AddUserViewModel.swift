@@ -16,8 +16,8 @@ class AddUserViewModel: ObservableObject {
     @Published var nik = ""
     @Published var email = ""
     @Published var selectedRole: Role? = nil
-    @Published var password = ""
-    @Published var confirmPassword = ""
+//    @Published var password = ""
+//    @Published var confirmPassword = ""
     
     @Published var isLoading = false
     @Published var errorMessage: String?
@@ -92,28 +92,28 @@ class AddUserViewModel: ObservableObject {
         do {
             switch mode {
             case .add:
-                guard password == confirmPassword else {
-                    errorMessage = "Passwords do not match"
-                    isLoading = false
-                    return false
-                }
+//                guard password == confirmPassword else {
+//                    errorMessage = "Passwords do not match"
+//                    isLoading = false
+//                    return false
+//                }
                 
                 try await self.repository.addUser(
                     username: self.username,
                     nik: self.nik,
                     email: self.email,
                     roleId: self.selectedRole!.id ?? "",
-                    password: self.password
+                    // password: self.password
                 )
                 
             case .edit:
-                guard password == confirmPassword else {
-                    errorMessage = "Passwords do not match"
-                    isLoading = false
-                    return false
-                }
+//                guard password == confirmPassword else {
+//                    errorMessage = "Passwords do not match"
+//                    isLoading = false
+//                    return false
+//                }
                 
-                let passwordToUpdate: String? = self.password.isEmpty ? nil : self.password
+                // let passwordToUpdate: String? = self.password.isEmpty ? nil : self.password
                 
                 try await self.repository.updateUser(
                     user: userToEdit!,
@@ -121,7 +121,7 @@ class AddUserViewModel: ObservableObject {
                     nik: self.nik,
                     email: self.email,
                     roleId: self.selectedRole?.id ?? "",
-                    password: passwordToUpdate // nil if empty
+                    // password: passwordToUpdate // nil if empty
                 )
                 
             default :

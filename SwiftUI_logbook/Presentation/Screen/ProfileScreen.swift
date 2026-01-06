@@ -63,51 +63,51 @@ struct ProfileScreen: View {
                 }
             }
             
-            Section("Change Password") {
-
-                SecureField("Enter your old Password", text: $vm.oldPassword)
-                    .padding()
-                    .background(Color(UIColor.secondarySystemBackground))
-                    .cornerRadius(8)
-
-                SecureField("Enter your new Password", text: $vm.newPassword)
-                    .padding()
-                    .background(Color(UIColor.secondarySystemBackground))
-                    .cornerRadius(8)
-
-                SecureField("Confirm your new Password", text: $vm.confirmPassword)
-                    .padding()
-                    .background(Color(UIColor.secondarySystemBackground))
-                    .cornerRadius(8)
-
-            }
-            
-            Section {
-                if let error = vm.errorMessageForPassword {
-                    Text(error)
-                        .foregroundColor(.red)
-                }
-                
-                Button(action: {
-                    Task { await vm.updatePassword() }
-                }) {
-                    if vm.isLoading {
-                        HStack {
-                            ProgressView()
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                        }
-                        .frame(maxWidth: .infinity)
-                    } else {
-                        Text("Update Password")
-                            .frame(maxWidth: .infinity)
-                    }
-                }
-                .disabled(vm.isLoading)
-                .alert("Password Updated", isPresented: $vm.showSuccessAlert) {
-                    Button("OK", role: .cancel) { }
-                }
-            }
+//            Section("Change Password") {
+//
+//                SecureField("Enter your old Password", text: $vm.oldPassword)
+//                    .padding()
+//                    .background(Color(UIColor.secondarySystemBackground))
+//                    .cornerRadius(8)
+//
+//                SecureField("Enter your new Password", text: $vm.newPassword)
+//                    .padding()
+//                    .background(Color(UIColor.secondarySystemBackground))
+//                    .cornerRadius(8)
+//
+//                SecureField("Confirm your new Password", text: $vm.confirmPassword)
+//                    .padding()
+//                    .background(Color(UIColor.secondarySystemBackground))
+//                    .cornerRadius(8)
+//
+//            }
+//            
+//            Section {
+//                if let error = vm.errorMessageForPassword {
+//                    Text(error)
+//                        .foregroundColor(.red)
+//                }
+//                
+//                Button(action: {
+//                    Task { await vm.updatePassword() }
+//                }) {
+//                    if vm.isLoading {
+//                        HStack {
+//                            ProgressView()
+//                                .frame(maxWidth: .infinity)
+//                                .padding()
+//                        }
+//                        .frame(maxWidth: .infinity)
+//                    } else {
+//                        Text("Update Password")
+//                            .frame(maxWidth: .infinity)
+//                    }
+//                }
+//                .disabled(vm.isLoading)
+//                .alert("Password Updated", isPresented: $vm.showSuccessAlert) {
+//                    Button("OK", role: .cancel) { }
+//                }
+//            }
             
         }
         .navigationTitle("Profile")
